@@ -1,0 +1,23 @@
+node_modules/
+.next/
+out/
+*.log
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# API local data (JSON store for MVP demo)
+api/data/
+
+# Env
+.env
+.env.local
+.env*.local
+
+# PWA build artifacts
+web/public/sw.js.map

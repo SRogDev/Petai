@@ -1,0 +1,23 @@
+{
+  "background_color": "#FFF7ED",
+  "description": "Create any creature you can imagine. Raise it, play with it, and discover the life it lives when you're away. Not an assistant — a companion.",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/icons/icon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "purpose": "any",
+      "sizes": "180x180",
+      "src": "/apple-touch-icon.svg",
+      "type": "image/svg+xml"
+    }
+  ],
+  "name": "Petai — A living digital creature that belongs to you",
+  "short_name": "Petai",
+  "start_url": "/",
+  "theme_color": "#F97316"
+}

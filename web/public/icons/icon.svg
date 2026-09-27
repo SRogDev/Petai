@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#FFF7ED"/>
+  <!-- creature body -->
+  <ellipse cx="256" cy="290" rx="150" ry="142" fill="#F97316" stroke="#9A3412" stroke-width="14"/>
+  <!-- belly -->
+  <ellipse cx="256" cy="348" rx="82" ry="62" fill="#FED7AA"/>
+  <!-- horns -->
+  <path d="M150 170 L118 92 L196 138 Z" fill="#FED7AA" stroke="#9A3412" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M362 170 L394 92 L316 138 Z" fill="#FED7AA" stroke="#9A3412" stroke-width="12" stroke-linejoin="round"/>
+  <!-- eyes -->
+  <circle cx="198" cy="252" r="34" fill="#FFFFFF" stroke="#9A3412" stroke-width="10"/>
+  <circle cx="314" cy="252" r="34" fill="#FFFFFF" stroke="#9A3412" stroke-width="10"/>
+  <circle cx="204" cy="258" r="15" fill="#0F172A"/>
+  <circle cx="308" cy="258" r="15" fill="#0F172A"/>
+  <circle cx="198" cy="250" r="5" fill="#FFFFFF"/>
+  <circle cx="302" cy="250" r="5" fill="#FFFFFF"/>
+  <!-- blush -->
+  <ellipse cx="148" cy="310" rx="22" ry="14" fill="#F9A8D4" opacity="0.8"/>
+  <ellipse cx="364" cy="310" rx="22" ry="14" fill="#F9A8D4" opacity="0.8"/>
+  <!-- scarf -->
+  <rect x="118" y="372" width="276" height="52" rx="26" fill="#2563EB" stroke="#9A3412" stroke-width="12"/>
+</svg>
