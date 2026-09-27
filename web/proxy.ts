@@ -6,7 +6,7 @@ import { type NextRequest, NextResponse } from "next/server";
  * In DEMO MODE (Supabase env vars unset) it is a no-op passthrough —
  * the app works fully against the FastAPI backend instead.
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anonKey) {
