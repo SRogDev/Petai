@@ -2,64 +2,52 @@
 
 **A living digital creature that belongs to you.**
 
-Petai is an AI-powered digital pet platform. You describe any creature you
-can imagine — an animal, fantasy creature, alien, monster, robot-animal —
-and it comes alive: it has needs, a personality, memories, moods, and a
-life of its own between your visits. It is **not an assistant**. It is a
-companion.
+You describe any creature you can imagine — an animal, fantasy creature, alien, monster, robot-animal — and it comes alive: needs, personality, memories, moods, a life of its own between visits. It is **not an assistant**. It is a companion.
 
-> *"Does this feel like my creature is alive?"* — the one question every
-> Petai feature must answer.
+> *"Does this feel like my creature is alive?"* — the one question every feature must answer.
 
-- **Repo:** https://github.com/SRogDev/Petai
-- **License:** Elastic License 2.0 (see `LICENSE`)
-- **Product philosophy & hard rules:** [`docs/`](docs/)
-
-## Monorepo
-
-```
-petai/
-├── web/            # Next.js 15 PWA (mobile-first, English UI)
-├── api/            # FastAPI + LangGraph Pet Mind (mock AI provider)
-├── supabase/db.sql # Day-1 Postgres schema + RLS (apply in SQL editor)
-└── docs/           # Vision, product rules, architecture, MVP scope
-```
-
-## Quickstart
-
-**1. Database** — create a Supabase project, run `supabase/db.sql` in the
-SQL editor, copy the project URL + anon key.
-
-**2. Backend**
-```bash
-cd api
-python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt   # fastapi uvicorn pydantic langgraph httpx
-uvicorn app.main:app --reload --port 8000
-```
-
-**3. Frontend**
-```bash
-cd web
-npm install
-cp .env.example .env.local   # set NEXT_PUBLIC_SUPABASE_URL / ANON_KEY / API_URL
-npm run dev                  # http://localhost:3000
-```
-
-Without Supabase env vars the web app runs in **demo mode** (fully
-functional against the API, banner shown). AI generation is **mocked**
-(keyword-driven procedural); set `AI_PROVIDER=openrouter` and
-`OPENROUTER_API_KEY` in `api` to wire real models later.
-
-## The Physical World Layer
-
-A first-class priority: `/pets/[id]/ar` places your creature in the real
-world via AR (`<model-viewer>` → Scene Viewer / Quick Look / WebXR) built
-from a procedurally generated 3D model, plus haptic embodiment. New
-physical interactions plug into the capability registry — see
-[`docs/06-physical-world-layer.md`](docs/06-physical-world-layer.md).
+Design rules: never fully autonomous (the user stays important); freedom at creation, biological constraints after; deterministic systems own hunger/energy/time/inventory/progression/cooldowns/safety — AI owns decisions, dialogue, narrative. Mobile-first, English UI, PWA-first (AR is a replaceable capability layer).
 
 ## Status
 
-MVP per [`docs/07-mvp-scope.md`](docs/07-mvp-scope.md). Honest stubs are
-labeled in code and docs — never presented as working.
+- **MVP done and pushed (2026-09-27, `main` @ `6cce196`):** FastAPI api (pytest 10/10, uv-managed) + Next.js 16.3.6 PWA (build green, 8/8 pages). Full Supabase schema + RLS in `supabase/db.sql` (not applied yet).
+- **Physical World Layer:** three.js genome→GLB, model-viewer AR, haptics, capability registry — camera placement not yet verified on a physical device.
+- **AI is mocked** (keyword-driven procedural; OpenRouter seam ready — key not yet added).
+- **Blocked on setup:** Supabase project + apply `db.sql` + env vars; `OPENROUTER_API_KEY`; real-device AR test.
+
+## Stack
+
+Next.js 16.3.6 PWA · FastAPI + LangGraph (uv-managed Python) · Supabase (Postgres + RLS) · three.js / model-viewer (AR) · OpenRouter (AI seam, mocked for now)
+
+Look: claymorphism — orange `#F97316`, cream `#FFF7ED`, blue `#2563EB`.
+
+## Quickstart
+
+```bash
+# Backend
+cd api
+uv sync
+uv run uvicorn app.main:app --reload --port 8000
+
+# Frontend (separate terminal)
+cd web
+npm install
+cp .env.example .env.local   # NEXT_PUBLIC_SUPABASE_URL / ANON_KEY / API_URL
+npm run dev                  # http://localhost:3000
+```
+
+Without Supabase env vars the web app runs in **demo mode** (banner shown).
+
+## Structure
+
+```
+petai/
+├── web/            # Next.js 16 PWA (mobile-first, English UI)
+├── api/            # FastAPI + LangGraph Pet Mind (mock AI provider)
+├── supabase/db.sql # Postgres schema + RLS — apply in the SQL editor
+└── docs/           # vision, product rules, architecture, MVP scope
+```
+
+## License
+
+Elastic License 2.0 — see [LICENSE](LICENSE).
